@@ -26,16 +26,16 @@ with open('people.json', 'w') as f:
     for item in sorted_data_time:
         print(item)
     print("newwwwwwwwwwwwww")
-    sorted_data_name = sorted(people, key=lambda item: item['name'])
+    sorted_data_name = sorted(people, key=lambda item: item['family'])
     for item in sorted_data_name:
         print(item)
     # Search for a name in the data
-    name = input("Enter name to search for: ")
+    family = input("Enter name to search for: ")
     for record in people:
-        similarity_score = fuzz.ratio(record['name'], name)
+        similarity_score = fuzz.ratio(record['family'], family)
         if similarity_score > 50:
         #if record['name'] == name:
             print(record)
             break
     else:
-            print(f"No record found for name '{name}'")
+            print(f"No record found for name '{family}'")
